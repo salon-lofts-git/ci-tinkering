@@ -2,5 +2,6 @@ language: ruby
 rvm:
   - 2.3.7
 script:
+  - cat /proc/cpuinfo
   - bundle exec rspec
 
