@@ -4,4 +4,10 @@ rvm:
 script:
   - cat /proc/cpuinfo
   - bundle exec rspec
-
+after_success:
+  - ./bin/travis-ci-merge
+env:
+  global:
+    # This line specifies an encrypted environment variable holding a "secret token" that
+    # allows Travis-CI to merge good commits to 'master' (in theory).
+    - secure: "x5qNIdMBamzdIPJELTbK7ODXAhhqjsMArqRXZtcRS8ElciOXefY2E51zjZTiidbWv1MDd7qaGZw1rF2TK83BS8yf1afVsLpI3d3sYXO+SsBvAw2lUTX8OB3I2cue12U3qzX3JfS91Dp5D0jSQoyw8tRrVGJhAhWC4VDvwsEEUE0dLZskSbW8zUrDtOjoWo85oexKkWTCH7Jp1CFypPyggcP4MMIFt/zimjJ1Efypfx4KxpElO9yzAIU0v84a4LrV/ON13eiZOPT7cVil/855wCKTiEG5CzlVCmP4nyFPmcn4qBIgOCxk4G6iIPgCXGPMpaYxxEUYRUaKS/S8yycazU7jmGeRuNKzGR72GhQmfzcaVIyZLDVcONUZqfOyDIYbHRLOsjFwiwNRCsr4DdHitef2fgJgiL75wrF8vmNU/eWNK7WB8bisuctG+7gCEsI30JpY9ccFhO4V2f4l+g3GmNUhlE5gjrBGz8FEyw/jfvntkmur0d2UK1HCryS8EGoSpjGLiwJlIKhgWiiG937TyH4AdRU+HxvvlpENnDZFgv55l+KiPnvsFWGInNTdN/+cEfPX6+56gIYoVDA2KOYNwTiYZunTISRghZxk+BRItmiKkLPzcQx+4IYHAiR8cUhtofjCKj9HUb6kIHg7DjIynx8QF7KYbgqdKiCE+sQBtcw="
