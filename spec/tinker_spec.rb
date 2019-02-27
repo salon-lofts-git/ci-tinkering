@@ -10,6 +10,10 @@ describe 'tinkering' do
     expect(1 + 1).to eq 2
   end
 
+  it 'should also give green here' do
+    expect("hello").to include "o"
+  end
+
   # it 'fails' do
   #   expect(true).to be false
   # end
