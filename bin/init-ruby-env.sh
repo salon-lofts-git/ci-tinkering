@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if hash rvm 2>/dev/null; then
   echo 'RVM looks to be installed already.'
@@ -12,14 +12,15 @@ else
   curl -sSL https://get.rvm.io | bash -s stable
 fi
 
+GEMSET=ci-tinker
 ruby_version_and_gemset=`cat .ruby-version | xargs`
-ruby_version=`echo ${ruby_version_and_gemset/@ci-tinker/}`
+ruby_version=`echo ${ruby_version_and_gemset/@$GEMSET/}`
 
 echo "Going to install $ruby_version..."
 ~/.rvm/bin/rvm install $ruby_version
 
-echo "Creating 'salonlofts' gemset..."
-~/.rvm/bin/rvm-exec $ruby_version rvm gemset create salonlofts
+echo "Creating '$GEMSET' gemset..."
+~/.rvm/bin/rvm-exec $ruby_version rvm gemset create $GEMSET
 
 echo "Installing Bundler..."
 ~/.rvm/bin/rvm-exec $ruby_version_and_gemset gem install bundler
