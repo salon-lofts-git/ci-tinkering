@@ -13,7 +13,7 @@ else
 fi
 
 ruby_version_and_gemset=`cat .ruby-version | xargs`
-ruby_version=`echo ${ruby_version_and_gemset/@salonlofts/}`
+ruby_version=`echo ${ruby_version_and_gemset/@ci-tinker/}`
 
 echo "Going to install $ruby_version..."
 ~/.rvm/bin/rvm install $ruby_version
